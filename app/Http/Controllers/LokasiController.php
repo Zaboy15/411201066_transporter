@@ -5,11 +5,15 @@ namespace App\Http\Controllers;
 use App\Helpers\Helper;
 use Illuminate\Http\Request;
 use App\Lokasi;
+use JWTAuth;
 
 class LokasiController extends Controller
 {
     public function getLokasi(){
         $lokasi = Lokasi::orderBy("id", "desc")->get();
+        // $user = JWTAuth::user();
+
+
         return Helper::toJson($lokasi);
     }
 
@@ -21,30 +25,27 @@ class LokasiController extends Controller
         $lokasi->nama_lokasi = $request->nama_lokasi;
         $lokasi->save();
 
-        return Helper::toJson($barang, "Data lokasi sudah ditambah");
+        return Helper::toJson($lokasi, "Data lokasi sudah ditambah");
         
     }
 
-    public function ubahBarang(Request $request)
+    public function ubahLokasi(Request $request)
     {
 
-        $barang = Barang::where("id", $request->id)->first();
-        $barang->kode_barang = $request->kode_barang;
-        $barang->nama_barang = $request->nama_barang;
-        $barang->deskripsi = $request->deskripsi;
-        $barang->stok_barang = $request->stok_barang;
-        $barang->harga_barang = $request->harga_barang;
-        $barang->save();
+        $lokasi = Lokasi::where("id", $request->id)->first();
+        $lokasi->kode_lokasi = $request->kode_lokasi;
+        $lokasi->nama_lokasi = $request->nama_lokasi;
+        $lokasi->save();
 
-        return Helper::toJson($barang, "Data lokasi sudah diubah");
+        return Helper::toJson($lokasi, "Data lokasi sudah diubah");
         
     }
 
-    public function hapusBarang($id)
+    public function hapusLokasi($id)
     {
 
-        $barang = Barang::where('id', $id)->first();
-        Barang::where('id', $id)->delete();
+        $lokasi = Lokasi::where('id', $id)->first();
+        Lokasi::where('id', $id)->delete();
 
         return Helper::toJson("", "Data lokasi sudah dihapus");
         

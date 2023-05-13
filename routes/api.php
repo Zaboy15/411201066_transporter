@@ -26,10 +26,25 @@ Route::group([
 ], function ($router) {
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
+   
+});
+
+Route::group(['prefix' => 'barang', 
+    'middleware' => ['api','jwt.verify'],
+], function ($router) {
     Route::get('getBarang', 'BarangController@getBarang');
     Route::post('tambahBarang', 'BarangController@tambahBarang');
     Route::post('ubahBarang', 'BarangController@ubahBarang');
     Route::get('hapusBarang/{id}', 'BarangController@hapusBarang');
+});
+
+Route::group(['prefix' => 'lokasi', 
+    'middleware' => ['api','jwt.verify'],
+], function ($router) {
+    Route::get('getLokasi', 'LokasiController@getLokasi');
+    Route::post('tambahLokasi', 'LokasiController@tambahLokasi');
+    Route::post('ubahLokasi', 'LokasiController@ubahLokasi');
+    Route::get('hapusLokasi/{id}', 'LokasiController@hapusLokasi');
 });
 
 
