@@ -47,6 +47,14 @@ Route::group(['prefix' => 'lokasi',
     Route::get('hapusLokasi/{id}', 'LokasiController@hapusLokasi');
 });
 
+Route::group(['prefix' => 'pengiriman', 
+    'middleware' => ['api','jwt.verify'],
+], function ($router) {
+    Route::get('getPengiriman', 'PengirimanController@getPengiriman');
+    Route::post('tambahPengiriman', 'PengirimanController@tambahPengiriman');
+    Route::post('ubahStatus', 'PengirimanController@ubahStatus');
+});
+
 
 
 

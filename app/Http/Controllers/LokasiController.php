@@ -11,8 +11,6 @@ class LokasiController extends Controller
 {
     public function getLokasi(){
         $lokasi = Lokasi::orderBy("id", "desc")->get();
-        // $user = JWTAuth::user();
-
 
         return Helper::toJson($lokasi);
     }
