@@ -13,10 +13,10 @@ use JWTAuth;
 class PengirimanController extends Controller
 {
     public function getPengiriman(){
-        $lokasi = Pengiriman::orderBy("id", "desc")->get();
+        $pengiriman = Pengiriman::orderBy("id", "desc")->get();
         
 
-        return Helper::toJson($lokasi);
+        return Helper::toJson($pengiriman);
     }
 
     public function tambahPengiriman(Request $request)
