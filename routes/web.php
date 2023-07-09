@@ -12,5 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layout.layout');
 });
+
+Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware'=>'auth'], function(){
+    Route::resource('/', DashboardController::class);
+    Route::resource('pengiriman', PengirimanController::class);
+});
+
+Route::get('/grafik/data', 'DashboardController@getData');
