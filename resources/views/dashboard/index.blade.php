@@ -113,6 +113,16 @@
                     pointFormat: '{series.nama_barang}:<b>{point.percentage:.0f}%</b> <br> Count:<b>{series.total}</b>',
                     percentageDecimals: 2
                 },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: false
+                        },
+                        showInLegend: true
+                    }
+                },
                 series: [{
                     type: 'pie',
                     name: 'Total Persentase'
@@ -144,6 +154,17 @@
                 tooltip: {
                     pointFormat: '{series.nama_lokasi}:<b>{point.percentage:.0f}%</b> <br> Count:<b>{series.total}</b>',
                     percentageDecimals: 3
+                },
+
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: false
+                        },
+                        showInLegend: true
+                    }
                 },
 
 

@@ -38,17 +38,6 @@
                                     <td>{{ $value->created_at }}</td> 
                                     <td>{{ $value->updated_at }}</td> 
                                     <td>
-                                        <a href="{{ url('pengiriman/'.$value->id) }}" >
-                                        <button class="btn btn-sm btn-success">
-                                        View
-                                        </button>  
-                                        </a> 
-
-                                        <a href="{{ url('pengiriman/'.$value->id.'/edit') }}" >
-                                        <button class="btn btn-sm btn-warning">
-                                        Edit
-                                        </button>
-                                        </a>
                                      <form method="POST" action="{{ url('pengiriman/'.$value->id) }}"> @csrf @method('DELETE') 
                                         <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Yakin akan menghapus data ini?')">Delete</button> 
                                     </form> 

@@ -22,5 +22,3 @@ Route::group(['middleware'=>'auth'], function(){
     Route::resource('/', DashboardController::class);
     Route::resource('pengiriman', PengirimanController::class);
 });
-
-Route::get('/grafik/data', 'DashboardController@getData');

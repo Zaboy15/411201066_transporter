@@ -18,7 +18,7 @@
 
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('css/adminlte.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/Chart.min.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/Chart.min.css') }}"> --}}
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="{{ asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
 
